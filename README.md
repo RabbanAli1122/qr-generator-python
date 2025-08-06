@@ -1,20 +1,93 @@
-# Making QRCode Using Python
+# 📦 Python QR Code Generator
 
-## Features:
+[![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-This program has the following features:
-1. This program can make a QRcode using Python and some libraries (i.e., qrcode and PIL).
-2. Any scanner can scan the information encoded in the QRCode.
-3. We can customize its pattern-color or background-color very easily with the help of a library called "PIL".
+This Python-based project allows you to generate both simple and advanced customizable QR codes using the `qrcode` and `PIL` libraries. With just a few lines of code, you can encode URLs or text into a scannable image. Customize the colors, box size, and border to suit your needs.
 
-## A Simple QR Code Pattern & Working Mechanism:
 
-1. To make a simple QR code, we just write three lines of code. In the first line, I imported the "qrcode" library. In the second line, I added a variable that will contain the link to which a person will be directed if he or she scans the QR code. In the third line, we will save our image, and that image will be stored with the location of the file in which the code is stored.
+## ✅ Features
 
-## An Advanced And Customized QR Code Pattern And Working Mechanism
+1. Generate QR codes from URLs or text using Python.
+2. Two versions included:
+   - **Simple QR Code Generator** (minimal code)
+   - **Advanced Custom QR Code Generator** with full control over:
+     - Pattern and background color
+     - Border size
+     - Box size
+3. Resulting QR codes are compatible with most standard scanner apps.
+4. Easy to customize with just a few code changes.
 
-1. To make a bit more advanced or customized version of QR Code with Python, we need another library along with the qrcode library (i.e., PIL library). And then all goes the same as the previous one, but this version is just a little bit of detailed in case of controling functions like changing the color of the pattern or background and increasing or decreasing the border of the box size.
 
-## Requirements to run this code:
+## 🧠 How It Works
+## ▶️ Simple QR Code Generator
+This version uses only the `qrcode` library and generates a basic black-and-white QR code with default settings.
 
-1. Anything that can run Python and some libraries (i.e., QRCode and PIL).
+### How It Works:
+- Import the qrcode library.
+- Add the data (URL or text).
+- Save the image with a desired filename.
+
+```
+import qrcode as qr
+image = qr.make("https://github.com/RabbanAli1122")
+image.save("python.png")
+```
+
+
+## 🎨 Advanced QR Code Customization
+This version uses both the qrcode and PIL libraries to allow for more control over QR code styling.
+```
+import qrcode
+from PIL import Image
+
+qr = qrcode.QRCode(
+    version=6,
+    box_size=10,
+    border=10
+)
+qr.add_data("https://github.com/RabbanAli1122")
+qr.make(fit=True)
+
+img = qr.make_image(fill_color="white", back_color="black")
+img.save("python_20_projects.png")
+```
+
+### 🔹 Key Customizations:
+
+- version: QR complexity (higher means more data).
+- box_size: Size of each square box.
+- border: Width of border (in boxes).
+- fill_color & back_color: Customize foreground/background color.
+
+### 🧰 Requirements
+Make sure you have Python installed, then install the required libraries:
+```
+pip install qrcode
+pip install pillow
+```
+
+### 📁 Files in This Repository
+File Name	Description
+simple_qr.py	Generates a basic QR code with default style
+custom_qr.py	Generates a customizable advanced QR code
+
+### 🚀 How to Run
+1. Clone this repository:
+```
+git clone https://github.com/RabbanAli1122/Python-QR-Code-Generator.git
+cd Python-QR-Code-Generator
+```
+2. Run the desired Python file:
+- python simple_qr.py      # for basic version
+- python custom_qr.py      # for advanced version
+
+  
+## 🧠 Lessons Learned
+- Learned how to use the qrcode library to generate QR codes.
+- Discovered how to customize QR code design using the PIL library.
+- Explored parameter control to modify QR code size, color, and structure.
+
+## 📜 License
+This project is licensed under the MIT License.
+See the LICENSE file for details.
