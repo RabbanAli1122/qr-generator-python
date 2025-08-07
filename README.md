@@ -67,10 +67,6 @@ pip install qrcode
 pip install pillow
 ```
 
-### 📁 Files in This Repository
-File Name	Description
-simple_qr.py	Generates a basic QR code with default style
-custom_qr.py	Generates a customizable advanced QR code
 
 ### 🚀 How to Run
 1. Clone this repository:
